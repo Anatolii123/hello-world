@@ -41,12 +41,16 @@ public class MatrixSummator extends Matrix  {
     public Matrix sum(Matrix b) {
         //TODO добавить проверку возможности проведения операции
         Matrix result = new Matrix();
+        if(this.getMatrix().length != b.getMatrix().length || this.getMatrix()[0].length != b.getMatrix()[0].length) {
+            System.out.println("Матрицы разных размерностей!");
+        } else {
 
-        int[][] sum = sumInternal(this.getMatrix(), b.getMatrix());
-        result.setMatrix(sum);
-        result.setA(sum.length);
-        result.setB(sum[0].length);
+            int[][] sum = sumInternal(this.getMatrix(), b.getMatrix());
+            result.setMatrix(sum);
+            result.setA(sum.length);
+            result.setB(sum[0].length);
 
+        }
         return result;
     }
 
